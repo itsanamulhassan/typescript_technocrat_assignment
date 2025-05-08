@@ -11,3 +11,7 @@ interface Book {
 function filterByRating(items: Book[]): Book[] {
   return items.filter((singleItem: Book) => singleItem.rating >= 4);
 }
+
+function concatenateArrays<T>(...arrays: T[][]): T[] {
+  return ([] as T[]).concat(...arrays);
+}
