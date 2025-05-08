@@ -16,18 +16,23 @@ function concatenateArrays<T>(...arrays: T[][]): T[] {
   return ([] as T[]).concat(...arrays);
 }
 
-// Problem 4:
+class Vehicle {
+  constructor(private make: string, private year: number) {}
 
-// Description:
+  public getInfo(): string {
+    return `Make: ${this.make}, Year: ${this.year}`;
+  }
+}
 
-//     Create a Vehicle class with private make and year properties and a getInfo() method.
-//     Create a Car class extending Vehicle, adding a private model property and a getModel() method.
+class Car extends Vehicle {
+  constructor(make: string, year: number, private model: string) {
+    super(make, year);
+  }
 
-// Example:
-
-// const myCar = new Car("Toyota", 2020, "Corolla");
-// myCar.getInfo();   // Output: "Make: Toyota, Year: 2020"
-// myCar.getModel();  // Output: "Model: Corolla"
+  public getModel(): string {
+    return `Model: ${this.model}`;
+  }
+}
 
 function processValue(value: string | number): number {
   if (typeof value === "string") {
@@ -50,4 +55,34 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
   } else {
     return null;
   }
+}
+
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+function getDayType(day: Day): string {
+  if (day >= 0 && day <= 4) {
+    return "Weekday";
+  } else {
+    return "Weekend";
+  }
+}
+
+async function squareAsync(n: number): Promise<number> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (n < 0) {
+        reject(new Error("Negative number not allowed"));
+      } else {
+        resolve(n * n);
+      }
+    }, 1000);
+  });
 }
