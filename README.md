@@ -1,15 +1,9 @@
-
-# 📝 TypeScript Basics – Blog Post
-
-This blog post is about important TypeScript concepts written in simple English.
-
----
-
 ## 🔹 1. Differences Between Interfaces and Types
 
 Both `interface` and `type` are used to describe the structure of an object in TypeScript.
 
 ### ✅ Interface
+
 - Good for object shapes and class structures
 - Can be extended
 - Can merge (add more fields later)
@@ -26,6 +20,7 @@ interface User {
 ```
 
 ### ✅ Type
+
 - Can define object, union, tuple, primitive, etc.
 - Cannot merge like interfaces
 - Used for combining types
@@ -60,11 +55,11 @@ type PersonKeys = keyof Person; // "name" | "age"
 
 ## 🔹 3. Difference between `any`, `unknown`, and `never`
 
-| Type    | Meaning                                     | Example                                  |
-|---------|---------------------------------------------|------------------------------------------|
-| `any`   | Can be anything (unsafe)                    | `let a: any = 5;`                        |
-| `unknown` | Can be anything, but must check before use | `let a: unknown = "test";`               |
-| `never` | A value that never happens (errors, loops)  | `function fail(): never { throw new Error("fail"); }` |
+| Type      | Meaning                                    | Example                                               |
+| --------- | ------------------------------------------ | ----------------------------------------------------- |
+| `any`     | Can be anything (unsafe)                   | `let a: any = 5;`                                     |
+| `unknown` | Can be anything, but must check before use | `let a: unknown = "test";`                            |
+| `never`   | A value that never happens (errors, loops) | `function fail(): never { throw new Error("fail"); }` |
 
 ---
 
@@ -73,22 +68,24 @@ type PersonKeys = keyof Person; // "name" | "age"
 Enums give friendly names to sets of values.
 
 ### 🔸 Numeric Enum
+
 ```ts
 enum Direction {
   Up,
   Down,
   Left,
-  Right
+  Right,
 }
 
 console.log(Direction.Up); // 0
 ```
 
 ### 🔸 String Enum
+
 ```ts
 enum Status {
   Success = "SUCCESS",
-  Failed = "FAILED"
+  Failed = "FAILED",
 }
 
 console.log(Status.Success); // "SUCCESS"
@@ -105,6 +102,7 @@ let name = "Anamul"; // TypeScript knows this is a string
 ```
 
 👍 **Why It’s Helpful**
+
 - Makes code cleaner
 - Saves time
 - Still gives type safety
@@ -114,6 +112,7 @@ let name = "Anamul"; // TypeScript knows this is a string
 ## 🔹 6. How TypeScript Helps Code Quality
 
 TypeScript:
+
 - Shows errors before running code (compile time)
 - Helps with auto-complete in code editors
 - Makes big projects easier to manage
@@ -125,6 +124,7 @@ TypeScript:
 ## 🔹 7. Union and Intersection Types
 
 ### 🔸 Union Type ( `|` ) – one of many types
+
 ```ts
 function showId(id: string | number) {
   console.log(id);
@@ -132,6 +132,7 @@ function showId(id: string | number) {
 ```
 
 ### 🔸 Intersection Type ( `&` ) – combine multiple types
+
 ```ts
 type Person = {
   name: string;
@@ -145,6 +146,6 @@ type Staff = Person & Employee;
 
 const staff: Staff = {
   name: "Farhun",
-  id: 100
+  id: 100,
 };
 ```
